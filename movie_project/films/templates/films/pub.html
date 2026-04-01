@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Все фильмы</h1>
+    <a href="{% url 'films' %}">Добавить новый фильм</a>
+    <hr>
+    {% if films %}
+        {% for film in films %}
+            <div>
+                <h2>{{ film.name }}</h2>
+                <p><strong>Описание:</strong> {{ film.description }}</p>
+                <p><strong>Отзыв:</strong> {{ film.review }}</p>
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>Пока нет ни одного фильма.</p>
+    {% endif %}
+</body>
+</html>
